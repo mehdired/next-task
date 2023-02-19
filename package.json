@@ -6,7 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"prisma-dev": "dotenv -e .env.local prisma migrate dev "
 	},
 	"dependencies": {
 		"@next/font": "13.1.6",
