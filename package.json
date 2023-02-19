@@ -7,7 +7,11 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"prisma-dev": "dotenv -e .env.local prisma migrate dev "
+		"prisma-dev": "dotenv -e .env.local prisma migrate dev ",
+		"prisma-seed": "dotenv -e .env.local prisma db seed "
+	},
+	"prisma": {
+		"seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly prisma/seed.ts"
 	},
 	"dependencies": {
 		"@next/font": "13.1.6",
