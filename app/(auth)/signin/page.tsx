@@ -1,7 +1,5 @@
-import React from 'react'
-
-type Props = {}
+import AuthForm from '@/components/AuthForm'
 
 export default function Signin() {
-	return <div>Signin</div>
+	return <AuthForm mode="signin" />
 }

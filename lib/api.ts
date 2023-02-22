@@ -5,7 +5,7 @@ type FetcherType = {
 	json?: boolean
 }
 
-type User = {
+export type UserType = {
 	name: string
 	email: string
 	password: string
@@ -36,10 +36,10 @@ export const fetcher = async ({
 	}
 }
 
-export const register = async (user: User) => {
+export const register = async (user: UserType) => {
 	return fetcher({ url: '/api/register', method: 'POST', body: user })
 }
 
-export const signin = async (user: User) => {
+export const signin = async (user: UserType) => {
 	return fetcher({ url: '/api/signin', method: 'POST', body: user })
 }

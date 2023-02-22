@@ -47,21 +47,12 @@ const buttonClasses = cva(
 
 export type Props = {
 	children: React.ReactNode
-	className?: string
-} & VariantProps<typeof buttonClasses>
+} & VariantProps<typeof buttonClasses> &
+	React.ButtonHTMLAttributes<HTMLButtonElement>
 
-export default function Button({
-	children,
-	intent,
-	size,
-	className,
-	...props
-}: Props) {
+export default function Button({ children, intent, size, ...props }: Props) {
 	return (
-		<button
-			className={buttonClasses({ intent, size, className })}
-			{...props}
-		>
+		<button className={buttonClasses({ intent, size })} {...props}>
 			Button
 		</button>
 	)
