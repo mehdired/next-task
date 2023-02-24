@@ -8,7 +8,7 @@ export default async function register(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	if (req.method !== 'POST' || !process.env.JWT_COOKIE_NAME) {
+	if (req.method !== 'POST') {
 		res.status(401).end()
 		return
 	}
