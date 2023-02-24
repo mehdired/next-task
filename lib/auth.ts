@@ -5,7 +5,7 @@ import { db } from './db'
 
 export const hashPassword = (password: string) => bcrypt.hash(password, 10)
 
-const comparePasswords = (plainPwd: string, hashedPwd: string) =>
+export const comparePasswords = (plainPwd: string, hashedPwd: string) =>
 	bcrypt.compare(plainPwd, hashedPwd)
 
 export const generateJWT = (user: UserType) => {
