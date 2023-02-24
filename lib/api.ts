@@ -1,14 +1,10 @@
+import { UserType } from '@/types/types'
+
 type FetcherType = {
 	url: string
 	method: 'GET' | 'POST' | 'PUT' | 'DELETE'
 	body?: any
 	json?: boolean
-}
-
-export type UserType = {
-	name: string
-	email: string
-	password: string
 }
 
 export const fetcher = async ({
