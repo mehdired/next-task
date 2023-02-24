@@ -3,6 +3,11 @@ import { SignJWT, jwtVerify } from 'jose'
 import { UserType } from '@/types/types'
 import { db } from './db'
 
+export type JWTType = {
+	name: string
+	value: string
+}
+
 export const hashPassword = (password: string) => bcrypt.hash(password, 10)
 
 export const comparePasswords = (plainPwd: string, hashedPwd: string) =>
@@ -13,16 +18,16 @@ export const generateJWT = (user: UserType) => {
 	const exp = iat + 60 * 60 * 24 * 7 // 7 days
 
 	return new SignJWT({ payload: { id: user.id, email: user.email } })
-		.setProtectedHeader({ alg: 'HSZ56', typ: 'JWT' })
+		.setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
 		.setIssuedAt(iat)
 		.setNotBefore(iat)
 		.setExpirationTime(exp)
 		.sign(new TextEncoder().encode(process.env.JWT_SECRET))
 }
 
-export const verifyJWT = async (token: string) => {
+export const verifyJWT = async (token: JWTType) => {
 	const { payload } = await jwtVerify(
-		token,
+		token.value,
 		new TextEncoder().encode(process.env.JWT_SECRET)
 	)
 

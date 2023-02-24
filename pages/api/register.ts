@@ -9,7 +9,9 @@ export default async function register(
 	res: NextApiResponse
 ) {
 	if (req.method !== 'POST') {
-		res.status(401).end()
+		res.status(401)
+		res.json({})
+		res.end()
 		return
 	}
 
@@ -32,5 +34,6 @@ export default async function register(
 	)
 
 	res.status(201)
+	res.json({})
 	res.end()
 }

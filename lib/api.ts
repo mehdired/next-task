@@ -22,6 +22,8 @@ export const fetcher = async ({
 		}
 	})
 
+	console.log(res)
+
 	if (!res.ok) {
 		throw new Error('An error occurred while fetching the data.')
 	}

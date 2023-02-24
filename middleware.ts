@@ -1,11 +1,12 @@
+import { JWTType } from './lib/auth'
 import { NextRequest, NextResponse } from 'next/server'
 import { jwtVerify } from 'jose'
 
 const PUBLIC_FILE = /\.(.*)$/
 
-const verifyJWT = async (token: string) => {
+const verifyJWT = async (token: JWTType) => {
 	const { payload } = await jwtVerify(
-		token,
+		token.value,
 		new TextEncoder().encode(process.env.JWT_SECRET)
 	)
 
@@ -25,7 +26,7 @@ export default async function middleware(req: NextRequest) {
 	) {
 		return NextResponse.next()
 	}
-
+	console.log(req)
 	const jwt = req.cookies.get(process.env.JWT_COOKIE_NAME)
 
 	if (!jwt) {
@@ -34,7 +35,7 @@ export default async function middleware(req: NextRequest) {
 	}
 
 	try {
-		await verifyJWT(jwt.value)
+		await verifyJWT(jwt)
 		return NextResponse.next()
 	} catch (e) {
 		console.error(e)
