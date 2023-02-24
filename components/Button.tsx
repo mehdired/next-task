@@ -53,7 +53,7 @@ export type Props = {
 export default function Button({ children, intent, size, ...props }: Props) {
 	return (
 		<button className={buttonClasses({ intent, size })} {...props}>
-			Button
+			{children}
 		</button>
 	)
 }

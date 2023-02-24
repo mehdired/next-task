@@ -2,6 +2,8 @@ import bcrypt from 'bcrypt'
 import { SignJWT, jwtVerify } from 'jose'
 import { UserType } from '@/types/types'
 import { db } from './db'
+import { ReadonlyRequestCookies } from 'next/dist/server/app-render'
+import { RequestCookies } from 'next/dist/server/web/spec-extension/cookies'
 
 export type JWTType = {
 	name: string
@@ -25,19 +27,23 @@ export const generateJWT = (user: UserType) => {
 		.sign(new TextEncoder().encode(process.env.JWT_SECRET))
 }
 
-export const verifyJWT = async (token: JWTType) => {
+export const verifyJWT = async (jwtValue: string) => {
 	const { payload } = await jwtVerify(
-		token.value,
+		jwtValue,
 		new TextEncoder().encode(process.env.JWT_SECRET)
 	)
 
 	return payload.payload
 }
 
-export const getUserFromCookie = async (cookies) => {
+export const getUserFromCookie = async (
+	cookies: ReadonlyRequestCookies | RequestCookies
+) => {
 	const jwt = cookies.get(process.env.JWT_COOKIE_NAME)
 
-	const { id } = (await verifyJWT(jwt)) as { id: string }
+	if (!jwt) return null
+
+	const { id } = (await verifyJWT(jwt.value)) as { id: string }
 
 	const user = await db.user.findUnique({
 		where: {
