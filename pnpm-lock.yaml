@@ -13,6 +13,7 @@ specifiers:
   bcrypt: 5.1.0
   class-variance-authority: 0.4.0
   clsx: 1.2.1
+  cookie: 0.5.0
   css-reset-and-normalize: 2.3.6
   eslint: 8.34.0
   eslint-config-next: 13.1.6
@@ -38,6 +39,7 @@ dependencies:
   bcrypt: 5.1.0
   class-variance-authority: 0.4.0_typescript@4.9.5
   clsx: 1.2.1
+  cookie: 0.5.0
   css-reset-and-normalize: 2.3.6
   eslint: 8.34.0
   eslint-config-next: 13.1.6_7kw3g6rralp5ps6mg3uyzz6azm
@@ -785,6 +787,11 @@ packages:
 
   /console-control-strings/1.1.0:
     resolution: {integrity: sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==}
+    dev: false
+
+  /cookie/0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+    engines: {node: '>= 0.6'}
     dev: false
 
   /create-require/1.1.1:
