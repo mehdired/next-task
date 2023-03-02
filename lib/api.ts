@@ -28,14 +28,25 @@ export const fetcher = async ({
 
 	if (json) {
 		const data = await res.json()
+
 		return data.data
 	}
 }
 
 export const register = async (user: UserType) => {
-	return fetcher({ url: '/api/register', method: 'POST', body: user })
+	return fetcher({
+		url: '/api/register',
+		method: 'POST',
+		body: user,
+		json: false
+	})
 }
 
 export const signin = async (user: UserType) => {
-	return fetcher({ url: '/api/signin', method: 'POST', body: user })
+	return fetcher({
+		url: '/api/signin',
+		method: 'POST',
+		body: user,
+		json: false
+	})
 }

@@ -2,13 +2,14 @@
 
 import { ChangeEvent, SyntheticEvent, useState } from 'react'
 
-import { signin, register, UserType } from '@/lib/api'
+import { signin, register } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 import Card from './Card'
 import Input from './Input'
 import Button from './Button'
+import { UserType } from '@/types/types'
 
 const registerContent = {
 	linkUrl: '/signin',
