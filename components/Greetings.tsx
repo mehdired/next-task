@@ -5,8 +5,7 @@ import Button from './Button'
 import Card from './Card'
 
 const getData = async () => {
-	await delay(5000)
-	console.log(cookies())
+	//await delay(5000)
 	const user = await getUserFromCookie(cookies())
 	return user
 }
@@ -20,7 +19,7 @@ export default async function Greetings() {
 		<Card className="w-full py-4 relative">
 			<div className="mb-4">
 				<h1 className="text-3xl text-gray-700 font-bold mb-4">
-					Hello, {user.name}!
+					Hi, {user.name}!
 				</h1>
 				<h4 className="text-xl text-gray-400">
 					Check your daily tasks and schedule

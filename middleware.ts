@@ -26,7 +26,7 @@ export default async function middleware(req: NextRequest) {
 	) {
 		return NextResponse.next()
 	}
-	console.log(req)
+
 	const jwt = req.cookies.get(process.env.JWT_COOKIE_NAME)
 
 	if (!jwt) {
