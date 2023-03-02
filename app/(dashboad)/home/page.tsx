@@ -6,6 +6,7 @@ import { db } from '@/lib/db'
 import { cookies } from 'next/headers'
 import Greetings from '@/components/Greetings'
 import GreetingsSkeleton from '@/components/GreetingsLoader'
+import ProjectCardList from '@/components/ProjectCardList'
 
 export default async function Page() {
 	return (
@@ -17,10 +18,9 @@ export default async function Page() {
 						<Greetings />
 					</Suspense>
 				</div>
-				<div className="flex flex-2 grow items-center flex-wrap mt-3 -m-3 ">
-					{/** projects map here */}
-					<div className="w-1/3 p-3">{/* new project here */}</div>
-				</div>
+				{/* @ts-expect-error Server Component */}
+				<ProjectCardList />
+				<div className="w-1/3 p-3">{/* new project here */}</div>
 				<div className="mt-6 flex-2 grow w-full flex">
 					<div className="w-full">{/* tasks here */}</div>
 				</div>
