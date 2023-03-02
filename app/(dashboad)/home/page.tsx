@@ -7,6 +7,7 @@ import { cookies } from 'next/headers'
 import Greetings from '@/components/Greetings'
 import GreetingsSkeleton from '@/components/GreetingsLoader'
 import ProjectCardList from '@/components/ProjectCardList'
+import TaskCard from '@/components/TaskCard'
 
 export default async function Page() {
 	return (
@@ -21,8 +22,9 @@ export default async function Page() {
 				{/* @ts-expect-error Server Component */}
 				<ProjectCardList />
 				<div className="w-1/3 p-3">{/* new project here */}</div>
-				<div className="mt-6 flex-2 grow w-full flex">
-					<div className="w-full">{/* tasks here */}</div>
+				<div className="w-full">
+					{/* @ts-expect-error Server Component */}
+					<TaskCard title="Tasks" />
 				</div>
 			</div>
 		</div>
