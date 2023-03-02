@@ -1,6 +1,8 @@
 import clsx from 'clsx'
 
-type Props = { className: string } & React.InputHTMLAttributes<HTMLInputElement>
+type Props = {
+	className?: string
+} & React.InputHTMLAttributes<HTMLInputElement>
 
 export default function Input({ className, ...props }: Props) {
 	return (

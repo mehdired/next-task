@@ -2,6 +2,7 @@ import { getUserFromCookie } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
+import NewProject from './NewProject'
 import ProjectCard from './ProjectCard'
 
 type Props = {}
@@ -33,6 +34,9 @@ export default async function ProjectCardList({}: Props) {
 					</Link>
 				</div>
 			))}
+			<div className="w-1/3 p-3">
+				<NewProject />
+			</div>
 		</div>
 	)
 }

@@ -23,5 +23,5 @@ export default async function handler(
 		}
 	})
 
-	res.json({ data: 'ok' })
+	res.json({ data: { message: 'ok' } })
 }
